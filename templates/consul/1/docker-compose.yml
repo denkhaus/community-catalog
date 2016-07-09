@@ -8,6 +8,7 @@ consul-conf:
 consul:
   image: husseingalal/consul:ui
   labels:
+    io.rancher.scheduler.affinity:container_label_ne: io.rancher.stack_service.name=$${stack_name}/$${service_name}
     io.rancher.sidekicks: consul-conf
   environment:
     WEB_UI: '${ui}'
